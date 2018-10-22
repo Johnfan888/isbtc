@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>测试javascript捕获叉叉</title>
+
+<script type="text/javascript" >
+function checkLeave()
+{  
+	var n = window.event.screenX - window.screenLeft;  
+	var b = n > document.documentElement.scrollWidth-20;  
+
+      if(b && event.clientY < 0 || event.altKey)    
+      {     
+             alert("点关闭按钮");  
+
+      }
+      else if(event.clientY > document.body.clientHeight || event.altKey)  
+      {  
+             alert("点关闭按钮");                  
+      }  
+
+      
+      else  
+      {     
+           alert("刷新页面");  
+      }     
+
+}
+</script>
+
+</head>
+
+<body onbeforeunload="checkLeave()">
+
+
+<p><b><i>需要捕获的情况(如果成功捕获则弹出对话框“点关闭按钮”)</i></b></p>
+<p>1.全屏网页下的叉叉</p>
+<p>2.缩小网页下的叉叉</p>
+<p>3.全屏或缩小网页下的alt+F4</p>
+<p>4.任务栏上点右键关闭</p>
+
+
+<p><b><i>不需要捕获的情况(弹出对话框“刷新页面”)</i></b></p>
+<p>1.刷新网页</p>
+</body>
+
+</html>
